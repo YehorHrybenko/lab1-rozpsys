@@ -1,6 +1,8 @@
 # Лабораторна робота 1
 > Виконав: Грибенко Єгор, ІМ-31мн
 
+Див. звіт: https://github.com/YehorHrybenko/lab1-rozpsys/blob/main/Hrybenko_Yehor_IM-31mn_zvit.pdf
+
 ### docker-compose.yml:
 
 ```yml
