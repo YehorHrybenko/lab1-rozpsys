@@ -1,7 +1,7 @@
 # Лабораторна робота 1
 > Виконав: Грибенко Єгор, ІМ-31мн
 
-### Docker-compose:
+### docker-compose.yml:
 
 ```yml
 services:
