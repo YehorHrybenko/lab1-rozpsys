@@ -1,0 +1,54 @@
+
+services:
+
+  nginx-api:
+    container_name: lb-api
+    image: nginx:latest
+    volumes:
+      - ./api/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api-1
+      - api-2
+    ports:
+      - "5000:5000"
+
+  api-1:
+    container_name: api-1
+    build: ./api
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./api:/app
+
+  api-2:
+    container_name: api-2
+    build: ./api
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./api:/app
+
+  lb-provider:
+    container_name: lb-provider
+    image: nginx:latest
+    volumes:
+      - ./service/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - provider-1
+      - provider-2
+
+  provider-1:
+    container_name: provider-1
+    build: ./service
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./service:/app
+
+  provider-2:
+    container_name: provider-2
+    build: ./service
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./service:/app
